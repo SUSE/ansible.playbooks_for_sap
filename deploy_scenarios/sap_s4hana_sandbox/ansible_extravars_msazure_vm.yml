@@ -32,7 +32,7 @@ sap_vm_provision_msazure_vm_host_os_image: "ENTER_STRING_VALUE_HERE"
 
 # Variables required for sap_vm_provision_iac_type=ansible
 sap_vm_provision_msazure_key_pair_name_ssh_host_public_key: "ENTER_STRING_VALUE_HERE"  # SSH key pair name (String).
-sap_vm_provision_msazure_private_dns_resource_group_name: "" # optional, default use of sap_vm_provision_msazure_resource_group_name
+# sap_vm_provision_msazure_private_dns_resource_group_name: "" # optional, default use of sap_vm_provision_msazure_resource_group_name
 
 # Variables required for sap_vm_provision_iac_type=ansible_to_terraform
 # sap_vm_provision_terraform_state: "ENTER_STRING_VALUE_HERE" # present, absent
@@ -113,6 +113,7 @@ sap_vm_provision_msazure_vm_host_specifications_dictionary:
 
 #### Ansible dictionary for operating system images ####
 sap_vm_provision_msazure_vm_host_os_image_dictionary:
+  # Red Hat
   rhel-8-0:
     publisher: "RedHat"
     offer: "RHEL"
@@ -177,34 +178,6 @@ sap_vm_provision_msazure_vm_host_os_image_dictionary:
     publisher: "RedHat"
     offer: "RHEL"
     sku: "94-gen2"
-  sles-12-5:
-    publisher: "SUSE"
-    offer: "sles-12-sp5"
-    sku: "gen2"
-  sles-15-1:
-    publisher: "SUSE"
-    offer: "sles-15-sp1"
-    sku: "gen2"
-  sles-15-2:
-    publisher: "SUSE"
-    offer: "sles-15-sp2"
-    sku: "gen2"
-  sles-15-3:
-    publisher: "SUSE"
-    offer: "sles-15-sp3"
-    sku: "gen2"
-  sles-15-4:
-    publisher: "SUSE"
-    offer: "sles-15-sp4"
-    sku: "gen2"
-  sles-15-5:
-    publisher: "SUSE"
-    offer: "sles-15-sp5"
-    sku: "gen2"
-  sles-15-6:
-    publisher: "SUSE"
-    offer: "sles-15-sp6"
-    sku: "gen2"
   rhel-8-1-sap-ha:
     publisher: "RedHat"
     offer: "RHEL-SAP-HA"
@@ -241,55 +214,71 @@ sap_vm_provision_msazure_vm_host_os_image_dictionary:
     publisher: "RedHat"
     offer: "RHEL-SAP-HA"
     sku: "94sapha-gen2"
-  sles-12-5-sap-ha:
+
+  # SUSE - Pay-as-you-go (PAYG)
+  sles-15-5:
     publisher: "SUSE"
-    offer: "sles-sap-12-sp5"
-    sku: "gen2"
-  sles-15-1-sap-ha:
-    publisher: "SUSE"
-    offer: "sles-sap-15-sp1"
-    sku: "gen2"
-  sles-15-2-sap-ha:
-    publisher: "SUSE"
-    offer: "sles-sap-15-sp2"
-    sku: "gen2"
-  sles-15-3-sap-ha:
-    publisher: "SUSE"
-    offer: "sles-sap-15-sp3"
-    sku: "gen2"
-  sles-15-4-sap-ha:
-    publisher: "SUSE"
-    offer: "sles-sap-15-sp4"
+    offer: "sles-15-sp5"
     sku: "gen2"
   sles-15-5-sap-ha:
     publisher: "SUSE"
     offer: "sles-sap-15-sp5"
     sku: "gen2"
+  sles-15-6:
+    publisher: "SUSE"
+    offer: "sles-15-sp6"
+    sku: "gen2"
   sles-15-6-sap-ha:
     publisher: "SUSE"
     offer: "sles-sap-15-sp6"
     sku: "gen2"
-  sles-15-1-sap-byos:
+  sles-15-7:
     publisher: "SUSE"
-    offer: "sles-sap-15-sp1-byos"
+    offer: "sles-15-sp7"
     sku: "gen2"
-  sles-15-2-sap-byos:
+  sles-15-7-sap-ha:
     publisher: "SUSE"
-    offer: "sles-sap-15-sp2-byos"
+    offer: "sles-sap-15-sp7"
     sku: "gen2"
-  sles-15-3-sap-byos:
+  sles-16-0:
     publisher: "SUSE"
-    offer: "sles-sap-15-sp3-byos"
+    offer: "sles-16-0-x86-64"
     sku: "gen2"
-  sles-15-4-sap-byos:
+  sles-16-0-sap-ha:
     publisher: "SUSE"
-    offer: "sles-sap-15-sp4-byos"
+    offer: "sles-sap-16-0-x86-64"
+    sku: "gen2"
+
+  # SUSE - Bring-your-own-subscription (BYOS)
+  sles-15-5-byos:
+    publisher: "SUSE"
+    offer: "sles-15-sp5-byos"
     sku: "gen2"
   sles-15-5-sap-byos:
     publisher: "SUSE"
     offer: "sles-sap-15-sp5-byos"
     sku: "gen2"
+  sles-15-6-byos:
+    publisher: "SUSE"
+    offer: "sles-15-sp6-byos"
+    sku: "gen2"
   sles-15-6-sap-byos:
     publisher: "SUSE"
     offer: "sles-sap-15-sp6-byos"
+    sku: "gen2"
+  sles-15-7-byos:
+    publisher: "SUSE"
+    offer: "sles-15-sp7-byos"
+    sku: "gen2"
+  sles-15-7-sap-byos:
+    publisher: "SUSE"
+    offer: "sles-sap-15-sp7-byos"
+    sku: "gen2"
+  sles-16-0-byos:
+    publisher: "SUSE"
+    offer: "sles-16-0-byos-x86-64"
+    sku: "gen2"
+  sles-16-0-sap-byos:
+    publisher: "SUSE"
+    offer: "sles-sap-16-0-byos-x86-64"
     sku: "gen2"
